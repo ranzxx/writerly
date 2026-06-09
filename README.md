@@ -8,7 +8,7 @@ A modern, minimal blog platform where ideas find their voice. Built as a portfol
 
 | Dashboard Page | Blog Page |
 |---|---|
-| ![dashboard page](./public/screenshots/dashboard.avif) | ![blog page](./public/screenshots/blog.avif) |
+| ![Dashboard Page](./public/screenshots/dashboard.avif) | ![Blog Page](./public/screenshots/blog.avif) |
 
 ---
 
@@ -60,7 +60,7 @@ A modern, minimal blog platform where ideas find their voice. Built as a portfol
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/writerly-app.git
+git clone https://github.com/ranzxx/writerly-app.git
 cd writerly-app
 ```
 
@@ -124,11 +124,11 @@ hooks/              → useAuth
 
 ## Challenges Solved
 
-- Next.js 15 App Router — layouts, Server Components, Server Actions
-- Full-stack TypeScript with end-to-end type safety via Drizzle ORM
-- Authentication flow with Better Auth and session management
-- Form validation with Zod and React Hook Form
-- Deploying a full-stack Next.js app to Vercel with Neon PostgreSQL
+- Built protected routes and author-only actions using Better Auth sessions
+- Implemented type-safe database operations with Drizzle ORM
+- Used Server Actions for post and comment mutations
+- Added form validation with Zod and React Hook Form
+- Deployed a full-stack Next.js app with Neon PostgreSQL on Vercel
 
 ---
 
