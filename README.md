@@ -27,6 +27,16 @@ A modern, minimal blog platform where ideas find their voice. Built as a portfol
 
 ---
 
+## Highlights
+
+- Authentication with Better Auth
+- PostgreSQL + Drizzle ORM
+- Server Actions
+- Comments system
+- Protected routes
+
+---
+
 ## Features
 
 - **Authentication** — register, login, and logout with email & password
@@ -112,7 +122,7 @@ hooks/              → useAuth
 
 ---
 
-## What I Learned
+## Challenges Solved
 
 - Next.js 15 App Router — layouts, Server Components, Server Actions
 - Full-stack TypeScript with end-to-end type safety via Drizzle ORM
