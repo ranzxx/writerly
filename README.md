@@ -4,8 +4,11 @@ A modern, minimal blog platform where ideas find their voice. Built as a portfol
 
 🔗 **Live Demo**: [writerly-app.vercel.app](https://writerly-app.vercel.app)
 
-![dashboard blog](image.png)
-![writerly priview](image-1.png)
+## Screenshots
+
+| Dashboard Page | Blog Page |
+|---|---|
+| ![dashboard page](./public/screenshots/dashboard.avif) | ![blog page](./public/screenshots/blog.avif) |
 
 ---
 
