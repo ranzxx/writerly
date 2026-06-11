@@ -7,7 +7,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface PostDetailPageProps {
-    params: Promise<{id: string}>
+  params: Promise<{ id: string }>;
 }
 
 export default async function PostDetailPage({ params }: PostDetailPageProps) {
@@ -15,15 +15,15 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
     headers: await headers(),
   });
 
-  const {id} = await params;
+  const { id } = await params;
   const post = await getPostById(id);
-  if(!post) notFound()
+  if (!post) notFound();
 
-    const postComments = await getComments(id)
+  const postComments = await getComments(id);
 
-    const isAuthor = session?.user.id === post.userId;
+  const isAuthor = session?.user.id === post.userId;
 
-    const deletePostWithId = deletePost.bind(null, id)
+  const deletePostWithId = deletePost.bind(null, id);
 
   return (
     <main className="px-8 py-12 max-w-2xl mx-auto">
@@ -35,9 +35,11 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-xs font-medium text-emerald-700">
-              {post.userId?.[0]?.toUpperCase()}
+              {post.authorName?.[0]?.toUpperCase() ?? "U"}
             </div>
-            <span className="text-sm text-gray-500">{post.userId}</span>
+            <span className="text-sm text-gray-500">
+              {post.authorName ?? "Unknown author"}
+            </span>
             <div className="w-1 h-1 rounded-full bg-gray-200" />
             <span className="text-sm text-gray-300">
               {new Date(post.createdAt).toLocaleDateString("en-US", {
@@ -83,7 +85,9 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
       {/* Comments */}
       <section>
         <h2 className="font-serif text-xl font-medium mb-8">
-          {postComments.length} comments
+          {postComments.length === 1
+            ? "1 comment"
+            : `${postComments.length} comments`}
         </h2>
 
         {session && <CommentForm postId={id} userId={session.user.id} />}

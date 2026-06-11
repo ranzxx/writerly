@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-import { post } from "@/db/schema";
+import { post, user } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -24,7 +24,19 @@ export async function getPosts() {
 }
 
 export async function getPostById(id: string) {
-  const data = await db.select().from(post).where(eq(post.id, id));
+  const data = await db
+    .select({
+      id: post.id,
+      title: post.title,
+      content: post.content,
+      userId: post.userId,
+      createdAt: post.createdAt,
+      authorName: user.name,
+    })
+    .from(post)
+    .leftJoin(user, eq(post.userId, user.id))
+    .where(eq(post.id, id))
+    .limit(1);
   return data[0];
 }
 
